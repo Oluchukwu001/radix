@@ -3,9 +3,9 @@ spring:
     name: navigationSystem
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/postgres
-    username: postgres
-    password: "OluGod@2002"
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
     driver-class-name: org.postgresql.Driver
 
   sql:
@@ -14,7 +14,7 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
 
     show-sql: true
 
@@ -30,7 +30,7 @@ spring:
     time-zone: Africa/Lagos
 
 server:
-  port: 8080
+  port: ${SERVER_PORT}
   address: 0.0.0.0
 
 logging:
