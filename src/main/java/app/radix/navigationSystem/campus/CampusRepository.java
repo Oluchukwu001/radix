@@ -1,7 +1,5 @@
 package app.radix.navigationSystem.campus;
 
-
-
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
