@@ -39,7 +39,6 @@
 
 
 
-
 spring:
   application:
     name: navigationSystem
