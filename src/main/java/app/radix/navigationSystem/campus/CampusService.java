@@ -146,7 +146,8 @@ public class CampusService {
 
     @Transactional
     public void delete(Long id) {
-        ServiceUtil.softDelete(campusRepository, id, ENTITY_NAME);
+        resolveCampusById(id); 
+        campusRepository.deleteById(id);
     }
 
     // -------------------------------------------------------------------------
@@ -171,6 +172,13 @@ public class CampusService {
         if (request.longitude() != null) {
             ValidationUtil.requireValidLongitude(request.longitude(), "Longitude must be between -180 and 180");
         }
+    }
+
+    private Campus resolveCampusById(Long id) {
+        if(!campusRepository.existsById(id)) {
+            throw new IllegalArgumentException("Campus with ID " + id + " does not exist.");
+        }
+        return campusRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Campus with ID " + id + " does not exist."));
     }
 
     /**
