@@ -37,8 +37,6 @@
 
 
 
-
-
 spring:
   application:
     name: navigationSystem
@@ -69,3 +67,6 @@ logging:
   level:
     root: INFO
     org.hibernate.SQL: DEBUG
+
+app:
+  self-ping-url: ${SELF_PING_URL:https://radix-sbl0.onrender.com/api/v1/health}
